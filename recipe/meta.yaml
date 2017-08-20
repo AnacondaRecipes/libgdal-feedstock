@@ -18,72 +18,91 @@ source:
     - multiprocessor.patch
 
 build:
-  number: 2
-  skip: True  # [win and py36]
+  number: 3
   features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and (py35 or py36)]
+    - vc{{ vc }}  # [win]
 
 requirements:
   build:
-    - python  # [win]
+    # pins removed here because they are provided by name matching in conda_build_config.yaml
     - cmake  # [win]
     - curl
     - expat
     - freexl
-    - geos 3.5.1
+    - geos
     - giflib 5.1.*  # [not win]
     - hdf4
-    - hdf5 1.8.18|1.8.18.*
-    - jpeg 9*
+    - hdf5
+    - jpeg
     - json-c  # [not win]
     - kealib
     - libdap4 3.18.*  # [not win]
     - libkml  1.3.0  # [not win]
-    - libnetcdf 4.4.*
-    - libpng >=1.6.28,<1.7
+    - libnetcdf
+    - libpng
     - libspatialite
     - libtiff 4.0.*
     - openjpeg
     - poppler  # [not win]
     - postgresql
-    - proj4 4.9.3
-    - sqlite 3.13.*
+    - proj4
+    - sqlite
     - xerces-c
-    - zlib 1.2.*  # [not win]
-    - xz 5.2.*
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and (py35 or py36)]
+    - zlib
+    - xz
+    - {{ compiler('c') }}
+
   run:
     - curl
     - expat
     - freexl
-    - geos 3.5.1
+    # geos removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/geos-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - geos
     - giflib 5.1.*  # [not win]
-    - hdf4
-    - hdf5 1.8.18|1.8.18.*
-    - jpeg 9*
+    # hdf4 removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/hdf4-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - hdf4
+    # hdf5 removed here because hdf5 package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/hdf5-feedstock/pull/1/files#diff-e178b687b10a71a3348107ae3154e44cR31
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - hdf5
+    # jpeg removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/jpeg-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - jpeg
     - json-c  # [not win]
     - kealib
     - libdap4 3.18.*  # [not win]
     - libkml  1.3.0  # [not win]
     - libnetcdf 4.4.*
-    - libpng >=1.6.28,<1.7
+    # libpng removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/libpng-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - libpng >=1.6.28,<1.7
     - libpq
     - libspatialite
     - libtiff 4.0.*
     - openjpeg
     - poppler  # [not win]
-    - proj4 4.9.3
-    - sqlite 3.13.*
+    # proj4 removed here because proj4 package has run_exports for itself
+    #   https://github.com/AnacondaRecipes/proj.4-feedstock/pull/1
+    # - proj4
+    # sqlite removed here because sqlite package has run_exports for itself
+    #   https://github.com/AnacondaRecipes/sqlite-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - sqlite
     - xerces-c
-    - zlib 1.2.*  # [not win]
-    - xz 5.2.*
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and (py35 or py36)]
+    # zlib removed here because zlib package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/zlib-feedstock/pull/2
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - zlib
+    # xz removed here because xz package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/xz-feedstock/pull/2
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - xz
 
 test:
   files:
@@ -111,3 +130,4 @@ extra:
     - ocefpaf
     - kmuehlbauer
     - gillins
+    - msarahan
