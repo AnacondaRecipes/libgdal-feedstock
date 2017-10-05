@@ -30,18 +30,18 @@ requirements:
     - expat
     - freexl
     - geos
-    - giflib 5.1.*  # [not win]
+    - giflib  # [not win]
     - hdf4
     - hdf5
     - jpeg
     - json-c  # [not win]
     - kealib
-    - libdap4 3.18.*  # [not win]
-    - libkml  1.3.0  # [not win]
+    - libdap4  # [not win]
+    - libkml   # [not win]
     - libnetcdf
     - libpng
     - libspatialite
-    - libtiff 4.0.*
+    - libtiff
     - openjpeg
     - poppler  # [not win]
     - postgresql
@@ -60,7 +60,10 @@ requirements:
     #    https://github.com/AnacondaRecipes/geos-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
     # - geos
-    - giflib 5.1.*  # [not win]
+    # giflib removed here because package has run_exports for itself
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    #    https://github.com/AnacondaRecipes/giflib-feedstock/pull/1
+    #  - giflib 5.1.*  # [not win]
     # hdf4 removed here because package has run_exports for itself
     #    https://github.com/AnacondaRecipes/hdf4-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
@@ -75,16 +78,28 @@ requirements:
     # - jpeg
     - json-c  # [not win]
     - kealib
-    - libdap4 3.18.*  # [not win]
-    - libkml  1.3.0  # [not win]
-    - libnetcdf 4.4.*
+    # libdap4 removed here because package has run_exports for itself
+    #     https://github.com/AnacondaRecipes/libdap4-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - libdap4 3.18.*  # [not win]
+    # libkml removed here because package has run_exports for itself
+    #     https://github.com/AnacondaRecipes/libdap4-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - libkml  1.3.0  # [not win]
+    # libnetcdf removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/libnetcdf-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - libnetcdf 4.4.*
     # libpng removed here because package has run_exports for itself
     #    https://github.com/AnacondaRecipes/libpng-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
     # - libpng >=1.6.28,<1.7
     - libpq
     - libspatialite
-    - libtiff 4.0.*
+    # libtiff removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/libtiff-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - libtiff 4.0.*
     - openjpeg
     - poppler  # [not win]
     # proj4 removed here because proj4 package has run_exports for itself
