@@ -54,8 +54,8 @@ requirements:
 
   run:
     - curl
-    - expat
-    - freexl
+    # - expat
+    # - freexl
     # geos removed here because package has run_exports for itself
     #    https://github.com/AnacondaRecipes/geos-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
@@ -76,8 +76,8 @@ requirements:
     #    https://github.com/AnacondaRecipes/jpeg-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
     # - jpeg
-    - json-c  # [not win]
-    - kealib
+    # - json-c  # [not win]
+    # - kealib
     # libdap4 removed here because package has run_exports for itself
     #     https://github.com/AnacondaRecipes/libdap4-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
@@ -94,14 +94,14 @@ requirements:
     #    https://github.com/AnacondaRecipes/libpng-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
     # - libpng >=1.6.28,<1.7
-    - libpq
-    - libspatialite
+    # - libpq
+    # - libspatialite
     # libtiff removed here because package has run_exports for itself
     #    https://github.com/AnacondaRecipes/libtiff-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
     # - libtiff 4.0.*
-    - openjpeg
-    - poppler  # [not win]
+    # - openjpeg
+    # - poppler  # [not win]
     # proj4 removed here because proj4 package has run_exports for itself
     #   https://github.com/AnacondaRecipes/proj.4-feedstock/pull/1
     # - proj4
@@ -109,7 +109,7 @@ requirements:
     #   https://github.com/AnacondaRecipes/sqlite-feedstock/pull/1
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
     # - sqlite
-    - xerces-c
+    # - xerces-c
     # zlib removed here because zlib package has run_exports for itself
     #    https://github.com/AnacondaRecipes/zlib-feedstock/pull/2
     # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
