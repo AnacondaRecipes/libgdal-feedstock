@@ -17,9 +17,7 @@ source:
     - multiprocessor.patch
 
 build:
-  number: 0
-  features:
-    - vc{{ vc }}  # [win]
+  number: 1
   run_exports:
     # no idea, going with minor pin
     - {{ pin_subpackage('libgdal', max_pin='x.x') }}
@@ -29,6 +27,10 @@ requirements:
     # pins removed here because they are provided by name matching in conda_build_config.yaml
     - cmake  # [win]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    # - {{ cdt('libxrender-devel') }}  # [linux]
+    # - {{ cdt('libxext-devel') }}     # [linux]
+    # - {{ cdt('libxau-devel') }}      # [linux]
   host:
     - curl
     - expat
@@ -47,6 +49,7 @@ requirements:
     - libspatialite
     - libtiff
     - openjpeg
+    - pkg-config  # [not win]
     - poppler  # [not win]
     - postgresql
     - proj4

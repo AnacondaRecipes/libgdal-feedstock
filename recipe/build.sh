@@ -35,10 +35,17 @@ unset PYTHON
 export LDFLAGS="$LDFLAGS -Wl,-rpath,$PREFIX/lib -L$PREFIX/lib"
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 
+# Filter out -std=.* from CXXFLAGS as it disrupts checks for C++ language levels.
+re='(.*[[:space:]])\-std\=[^[:space:]]*(.*)'
+if [[ "${CXXFLAGS}" =~ $re ]]; then
+    export CXXFLAGS="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
+fi
+
 # `--without-pam` was removed.
 # See https://github.com/conda-forge/gdal-feedstock/pull/47 for the discussion.
 
-./configure --prefix=$PREFIX \
+bash configure --prefix=$PREFIX \
+            --host=$HOST \
             --with-curl \
             --with-dods-root=$PREFIX \
             --with-expat=$PREFIX \
@@ -65,9 +72,10 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
             --with-xerces=$PREFIX \
             --with-xml2=$PREFIX \
             --without-python \
+            --verbose \
             $OPTS
 
-make -j $CPU_COUNT >> $BUILD_OUTPUT 2>&1
+make -j $CPU_COUNT ${VERBOSE_AT} >> $BUILD_OUTPUT 2>&1
 make install >> $BUILD_OUTPUT 2>&1
 
 # Make sure GDAL_DATA and set and still present in the package.
