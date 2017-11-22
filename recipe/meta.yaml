@@ -43,7 +43,7 @@ requirements:
     - json-c  # [not win]
     - kealib
     - libdap4  # [not win]
-    - libkml   # [not win]
+    - libkml
     - libnetcdf
     - libpng
     - libspatialite
@@ -56,7 +56,7 @@ requirements:
     - sqlite
     - xerces-c
     - zlib
-    - xz
+    - xz  # [not win or vc>=14]
 
   run:
     - curl

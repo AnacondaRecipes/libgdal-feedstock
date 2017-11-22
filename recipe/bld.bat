@@ -59,7 +59,7 @@ set BLD_OPTS=%WIN64% ^
     OPENJPEG_CFLAGS="-I%LIBRARY_INC%" ^
     OPENJPEG_ENABLED=YES ^
     OPENJPEG_LIB=%LIBRARY_LIB%\openjp2.lib ^
-    OPENJPEG_VERSION=20100 ^
+    OPENJPEG_VERSION=20200 ^
     PG_INC_DIR=%LIBRARY_INC% ^
     PG_LIB=%LIBRARY_LIB%\libpq.lib ^
     PNGDIR=%LIBRARY_INC% ^
@@ -72,11 +72,13 @@ set BLD_OPTS=%WIN64% ^
     SQLITE_INC="-I%LIBRARY_INC% -DHAVE_SPATIALITE" ^
     SQLITE_LIB="%LIBRARY_LIB%\sqlite3.lib %LIBRARY_LIB%\spatialite_i.lib" ^
     TIFF_INC="-I%LIBRARY_INC%" ^
-    TIFF_LIB=%LIBRARY_LIB%\libtiff_i.lib ^
-    TIFF_OPTS=-DBIGTIFF_SUPPORT ^
+    TIFF_LIB=%LIBRARY_LIB%\tiff.lib ^
     XERCES_DIR=%LIBRARY_PREFIX% ^
     XERCES_INCLUDE="-I%LIBRARY_INC% -I%LIBRARY_INC%\xercesc" ^
     XERCES_LIB=%LIBRARY_LIB%\xerces-c_3.lib
+    rem LIBKML_DIR=%LIBRARY_PREFIX% ^
+    rem LIBKML_INCLUDE="-I%LIBRARY_INC%" ^
+    rem LIBKML_LIB=%LIBRARY_LIB%\xerces-c_3.lib
 
 nmake /f makefile.vc %BLD_OPTS%
 if errorlevel 1 exit 1
